@@ -34,7 +34,7 @@ def create_courier():
         "firstName": first_name
     }
 
-    response = requests.post(variables.COURIER_BASE_URL, data=payload)
+    response = requests.post(variables.ApiUrls.COURIER_BASE_URL, data=payload)
 
     if response.status_code == 201:
         login_pass.append(login)
@@ -45,7 +45,7 @@ def create_courier():
 
 
 def get_order_payload(color_options):
-    payload = variables.BASE_ORDER_PAYLOAD.copy()
+    payload = variables.OrderData.BASE_ORDER_PAYLOAD.copy()
     payload["color"] = color_options
 
     return payload

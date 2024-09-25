@@ -11,7 +11,7 @@ class TestOrderCreate:
     @pytest.mark.parametrize("color_option", [["BLACK"], ["GREY"], ["BLACK", "GREY"], []])
     def test_order_create_success(self, color_option):
         payload = get_order_payload(color_option)
-        response = requests.post(variables.BASE_ORDER_URL, json=payload)
+        response = requests.post(variables.ApiUrls.BASE_ORDER_URL, json=payload)
 
         assert response.status_code == 201, f'Статус код {response.status_code}'
         assert response.json()["track"] is not None, f'Тело {response.json()["track"]}'
